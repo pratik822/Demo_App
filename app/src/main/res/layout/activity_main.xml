@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_marginHorizontal="5dp"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/tv_radius_title"
+        android:text="Radius Selector"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:id="@+id/radius_layout"
+        android:weightSum="1"
+        android:layout_below="@+id/tv_radius_title"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="0.5"
+            android:id="@+id/tv_radius_start"
+            android:text="100 M"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:layout_weight="0.5"
+            android:id="@+id/tv_radius_end"
+            android:text="5 KM"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"></TextView>
+
+    </LinearLayout>
+
+    <SeekBar
+        android:layout_below="@+id/radius_layout"
+        android:id="@+id/seekbar"
+        android:min="100"
+        android:max="5000"
+        android:stepSize="100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </SeekBar>
+
+    <TextView
+        android:id="@+id/no_record_found"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_centerInParent="true"
+        android:text="No Record Found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_below="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/seekbar"></androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>
